@@ -35,14 +35,19 @@ Steps:
    Why do you do it?
    What problem do you want to solve?
    Is there already another plugin for that problem?
+   
 #. *Create files*: Create the files described next.
-   A starting point (:file:`__init__.py`).
-   Fill in the :ref:`plugin_metadata` (:file:`metadata.txt`)
-   A main python plugin body (:file:`mainplugin.py`).
-   A form in QT-Designer (:file:`form.ui`), with its :file:`resources.qrc`.
+
+   * A starting point (:file:`__init__.py`).
+   * Fill in the :ref:`plugin_metadata` (:file:`metadata.txt`)
+   * A main python plugin body (:file:`mainplugin.py`).
+   * A form in QT-Designer (:file:`form.ui`), with its :file:`resources.qrc`.
+   
 #. *Write code*: Write the code inside the :file:`mainplugin.py`
+
 #. *Test*: Close and re-open QGIS and import your plugin again. Check if
    everything is OK.
+   
 #. *Publish*: Publish your plugin in QGIS repository or make your own
    repository as an "arsenal" of personal "GIS weapons".
 
@@ -94,13 +99,8 @@ What is the meaning of the files:
   infrastructure. Since QGIS 2.0 the metadata from :file:`__init__.py` are not
   accepted anymore and the :file:`metadata.txt` is required.
 
-`Here <http://www.dimitrisk.gr/qgis/creator/>`_
-is an online automated way of creating the basic files (skeleton) of a typical
-QGIS Python plugin.
-
-Also there is a QGIS plugin called `Plugin Builder <http://geoapt.net/pluginbuilder/>`_
-that creates plugin template from QGIS and doesn't require internet connection.
-This is the recommended option, as it produces 2.0 compatible sources.
+There is a QGIS plugin called `Plugin Builder <http://geoapt.net/pluginbuilder/>`_
+that creates QGIS 2.0 compatible plugin templates from within QGIS.
 
 .. warning::
     If you plan to upload the plugin to the :ref:`official_pyqgis_repository`
@@ -133,27 +133,27 @@ right place to put this information.
 
 .. _plugin_metadata_table:
 
-=====================  ========  =======================================
-Metadata name          Required  Notes
-=====================  ========  =======================================
-name                   True      a short string  containing the name of the plugin
-qgisMinimumVersion     True      dotted notation of minimum QGIS version
-qgisMaximumVersion     False     dotted notation of maximum QGIS version
-description            True      short text which describes the plugin, no HTML allowed
-about                  True      longer text which describes the plugin in details, no HTML allowed
-version                True      short string with the version dotted notation
-author                 True      author name
-email                  True      email of the author, will *not* be shown on the web site
-changelog              False     string, can be multiline, no HTML allowed
-experimental           False     boolean flag, `True` or `False`
-deprecated             False     boolean flag, `True` or `False`, applies to the whole plugin and not just to the uploaded version
-tags                   False     comma separated list, spaces are allowed inside individual tags
-homepage               False     a valid URL pointing to the homepage of your plugin
-repository             True      a valid URL for the source code repository
-tracker                False     a valid URL for tickets and bug reports
-icon                   False     a file name or a relative path (relative to the base folder of the plugin's compressed package)
-category               False     one of `Raster`, `Vector`, `Database` and `Web`
-=====================  ========  =======================================
+=====================   =======================================
+Metadata name           Notes
+======================  =======================================
+**name**                A short string  containing the name of the plugin
+**qgisMinimumVersion**  Dotted notation of minimum QGIS version
+qgisMaximumVersion      Dotted notation of maximum QGIS version
+**description**         Short text which describes the plugin, no HTML allowed
+**about**               Longer text which describes the plugin in details, no HTML allowed
+**version**             Short string with the version dotted notation
+**author**              Author name
+**email**               Email of the author, will *not* be shown on the web site
+changelog               String, can be multiline, no HTML allowed
+experimental            Boolean flag, `True` or `False` (Default: `False`)
+deprecated              Boolean flag, `True` or `False`, applies to the whole plugin and not just to the uploaded version (Default: `False`)
+tags                    Comma separated list, spaces are allowed inside individual tags
+homepage                A valid URL pointing to the homepage of your plugin
+**repository**          A valid URL for the source code repository
+tracker                 A valid URL for tickets and bug reports
+icon                    A file name or a relative path (relative to the base folder of the plugin's compressed package)
+category                One of `Raster`, `Vector`, `Database` and `Web`
+=====================   =======================================
 
 By default, plugins are placed in the `Plugins` menu (we will see in the next
 section  how to add a menu entry for your plugin) but they can also be placed
@@ -404,3 +404,4 @@ and section, which is the name of an html anchor tag in the document
 on which the browser will be positioned.
 
 .. index:: plugins; code snippets
+
